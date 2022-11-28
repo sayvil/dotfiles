@@ -6,26 +6,36 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell
+# lowercase
+alias lower='for f in *; do mv "$f" "$f.tmp"; mv "$f.tmp" "`echo $f | tr "[:upper:]" "[:lower:]"`"; done'
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"
+
+# create .nvmrc
+alias cnvm=node -v > .nvmrc
+alias mnvm=node -v > .nvmrc
 
 # Bash Layout
 export PS1="[\\u@\\h:\\w]\n$"
 
 # MAMP SQL
-#export PATH=$PATH:/Applications/MAMP/Library/bin
+export PATH=${PATH}:/usr/local/mysql/bin
 
 # Typos
 alias gut="git"
 alias gti="git"
 alias got="git"
 
+# shortcuts
+alias fixvm="sudo kextunload -b com.intel.kext.intelhaxm"
+alias editbash="subl ~/.bash_profile"
+alias editz="subl~/.zshrc"
+alias fixbash="source ~/.bash_profile"
+
 # Old habits die hard
 # alias subl="atom"
-alias subl="code"
+# alias subl="code"
 
 # Copy SSH key
 alias copysshkey="pbcopy < ~/.ssh/id_rsa.pub"
@@ -34,13 +44,29 @@ alias copysshkey="pbcopy < ~/.ssh/id_rsa.pub"
 #alias web="cd /Applications/MAMP/htdocs"
 
 # Get to project directory quickly
-alias web="cd ~/Projects"
+alias web="cd ~/Sites/_GIT"
 
-# I don't remember what this was for
-#alias npm-run='PATH=$(npm bin):$PATH'
+#edit hosts
+alias ehosts="sudo nano /private/etc/hosts"
+
+# npm
+alias editbash="subl ~/.bash_profile"
+alias npmip="npm install && npm prune"
+alias npms="npm start"
+alias npmd="npm run dev"
+alias npmb="npm run build"
 
 # Too lazy to type docker-compose all the time
 alias dkc="docker-compose"
+alias dkcup="docker-compose up -d"
+alias dkcd="docker-compose down"
+alias dkcdown="docker-compose down"
+alias dkcb="docker-compose -f docker-compose.yml up -d --build"
+alias dkcbuild="docker-compose -f docker-compose.yml up -d --build"
+alias dkd="docker-compose down"
+alias dkcs="docker stop $(docker ps -a -q)"
+alias dkcrm="docker rm $(docker ps -a -q)"
+alias dkcsrm="docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
 
 # Too lazy to type vagrant
 alias vg="vagrant"
@@ -49,9 +75,9 @@ alias vg="vagrant"
 alias dk="docker"
 
 # Homebrew completion?
-# if [ -f $(brew --prefix)/etc/bash_completion ]; then
-# . $(brew --prefix)/etc/bash_completion
-# fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
 
 # Needed for NVM
 export NVM_DIR="$HOME/.nvm"
@@ -61,8 +87,9 @@ export NVM_DIR="$HOME/.nvm"
 # Shim for pyenv
 #eval "$(pyenv init -)"
 
-# AWS CLI
-#export PATH=~/.local/bin:$PATH
+# Nano
+export VISUAL=nano
+export EDITOR="$VISUAL"
 
 # https://laravel.com/docs/5.4/homestead#daily-usage
 function homestead() {
@@ -74,9 +101,9 @@ function homestead() {
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Java Stuff
-#export JAVA_HOME=$(/usr/libexec/java_home)
-#export PATH=${JAVA_HOME}/bin:$PATH
-#export PATH=/Users/mkeehner/NetBeansProjects/apache-maven-3.5.3/bin:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=${JAVA_HOME}/bin:$PATH
+export PATH=/Users/mkeehner/NetBeansProjects/apache-maven-3.5.3/bin:$PATH
 
 # Docker WP-CLI
 alias dcwp='docker-compose run --rm cli wp'
@@ -103,3 +130,5 @@ clean() {
 
 # Hide the “default interactive shell is now zsh” warning on macOS.
 export BASH_SILENCE_DEPRECATION_WARNING=1;
+
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
