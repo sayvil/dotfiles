@@ -1,11 +1,6 @@
 # I think MAMP is adding this
 #source ~/.profile
 
-# Add Git auto completion
-if [ -f ~/.git-completion.bash ]; then
-  source ~/.git-completion.bash
-fi
-
 # lowercase
 alias lower='for f in *; do mv "$f" "$f.tmp"; mv "$f.tmp" "`echo $f | tr "[:upper:]" "[:lower:]"`"; done'
 
@@ -34,8 +29,8 @@ alias editz="subl~/.zshrc"
 alias fixbash="source ~/.bash_profile"
 
 # Old habits die hard
-# alias subl="atom"
-# alias subl="code"
+alias atom="code"
+alias subl="code"
 
 # Copy SSH key
 alias copysshkey="pbcopy < ~/.ssh/id_rsa.pub"
@@ -132,3 +127,5 @@ clean() {
 export BASH_SILENCE_DEPRECATION_WARNING=1;
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
