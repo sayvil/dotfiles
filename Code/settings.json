@@ -45,4 +45,13 @@
   "workbench.editor.closeEmptyGroups": false,
   "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile",
+  "security.workspace.trust.emptyWindow": false,
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.startupPrompt": "never",
+  "yaml.schemas": {
+    "file:///Users/skennon/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atomKeymap.promptV3Features": true,
+  "editor.formatOnPaste": true,
+  "redhat.telemetry.enabled": false,
 }
