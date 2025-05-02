@@ -23,3 +23,12 @@ Backup of *.doc*
 ~$*.xls*
 # Excel Backup File
 *.xlk
+wp-admin
+wp-includes
+wp-content/plugins/hello.php
+wp-content/plugins/index.php
+wp-content/index.php
+package-lock.json
+web/wp-content/plugins
+wp-migrate-db-pro-compatibility.php
+web/wp-content/themes/x-child-2022

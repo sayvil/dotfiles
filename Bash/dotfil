@@ -1,0 +1,97 @@
+# lowercase
+alias lower='for f in *; do mv "$f" "$(echo "$f" | tr "[:upper:]" "[:lower:]")"; done'
+
+# create .nvmrc
+# alias cnvm=node -v > .nvmrc
+# alias mnvm=node -v > .nvmrc
+
+# shortcuts
+alias wpcreateuser="docker compose run --rm cli wp user create skennon@hlkagency.com skennon@hlkagency.com --role=administrator"
+alias delnm="rm -rf node_modules"
+alias mopo="/Users/skennon/Sites/_GIT/Marriott/1.0/mo-po.sh"
+
+# wordpress
+function theme() {
+  local subfolder=${1:-}
+  cd "$(dirname "$(realpath "$0")")/web/wp-content/themes/$subfolder"
+}
+
+alias dockerbash="docker compose run --rm cli bash"
+alias wpcorem="docker compose run --rm cli wp core multisite-install --url=brand-sites.marriott.local --title=Marriott --admin_user=skennon@hlkagency.com --admin_email=skennon@hlkagency.com"
+function wplogin() {
+  local email=${1:-skennon@hlkagency.com}
+  docker compose run --rm cli wp login install --activate --yes && docker compose run --rm cli wp login as "$email"
+}
+alias wploginr="wplogin rgillespie@hlkagency.com"
+alias wplogind="wplogin digital@hlkagency.com"
+alias wploginb="wplogin bsherron@hlkagency.com"
+
+#docker
+alias localhttp="docker compose run --rm cli wp search-replace 'http://localhost' 'http://localhost'"
+alias dockerfix="docker update --restart=no $(docker ps -a -q)"
+
+# dot files
+alias editz="code ~/.zshrc"
+alias fixz="source ~/.zshrc"
+
+# npm
+alias npmi="npm ci"
+alias npmip3="npm install --python=python3.10"
+alias npmib="npm i && npm run build"
+alias npms="npm start"
+alias npmd="npm run dev"
+alias npmb="npm run build"
+
+# Too lazy to type docker compose all the time
+alias dkc="docker compose"
+alias dkcup="docker compose up -d"
+alias dkcd="docker compose down"
+alias dkcb="docker compose -f docker compose.yml up -d --build"
+
+# Marriott
+alias gotop="cd '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress'"
+
+# alias buildak="go2 ak"
+function go2() {
+  local plugin=$1
+  cd "/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/pacsys-plugins/pacsys-${plugin}-gutenberg"
+}
+
+# alias buildak="go2b ak"
+function go2b() {
+  local plugin=$1
+  cd "/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/pacsys-plugins/pacsys-${plugin}-gutenberg" && npm run build
+}
+
+# alias buildak="go2ib ak"
+function go2ib() {
+  local plugin=$1
+  cd "/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/pacsys-plugins/pacsys-${plugin}-gutenberg" && npmib
+}
+
+# alias buildak="build4 ak"
+function build4() {
+  local project=$1
+  gotop && npm run build-${project} && go${project} && npmib
+}
+
+#pacsys
+alias buildpac="cd pacsys-components && npm run build"
+alias startpac="cd pacsys-components && npm run start"
+
+
+# added by NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/Sites/_GIT/sonarscanner/bin"
+
+# Nano
+export VISUAL=nano
+export EDITOR="$VISUAL"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export DYLD_LIBRARY_PATH=$(brew --prefix icu4c@74)/lib:$DYLD_LIBRARY_PATH

@@ -1,0 +1,41 @@
+echo "Loaded mar-pacsys-wordpress aliases and functions"
+
+# ----------------------------
+# Marriott Project-Specific Aliases and Functions
+# ----------------------------
+
+# alias buildak="go2 ak"
+function go2() {
+  local plugin=$1
+  gotop && cd "pacsys-plugins/pacsys-${plugin}-gutenberg"
+}
+
+# alias buildak="go2 ak"
+function cd2() {
+  local plugin=$1
+  cd "../pacsys-plugins/pacsys-${plugin}-gutenberg"
+}
+
+# alias buildak="go2b ak"
+function go2b() {
+  local plugin=$1
+  cd "pacsys-plugins/pacsys-${plugin}-gutenberg" && npm run build
+}
+
+# alias buildak="go2ib ak"
+function go2ip() {
+  local plugin=$1
+  cd "pacsys-plugins/pacsys-${plugin}-gutenberg" && npm i && npm run plugin-deploy
+}
+
+# alias buildak="go2ib ak"
+function go2ib() {
+  local plugin=$1
+  cd "pacsys-plugins/pacsys-${plugin}-gutenberg" && npmib
+}
+
+# alias buildak="build4 ak"
+function build4() {
+  local project=$1
+  npm run build-${project} && go2ib ${project}
+}

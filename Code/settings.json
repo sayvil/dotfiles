@@ -5,21 +5,15 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
   "editor.minimap.enabled": false,
-  "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
   "editor.rulers": [80, 120],
   "editor.tabSize": 2,
-  "editor.wordWrap": "on",
 
   "emmet.showAbbreviationSuggestions": false,
   "emmet.showExpandedAbbreviation": "never",
 
   "explorer.compactFolders": false,
   "explorer.autoReveal": false,
-
-  "files.exclude": {
-    "**/.git": false
-  },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
 
@@ -40,8 +34,6 @@
 
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
 
-  "window.zoomLevel": 0,
-
   "workbench.editor.closeEmptyGroups": false,
   "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile",
@@ -49,9 +41,139 @@
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
   "yaml.schemas": {
-    "file:///Users/skennon/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/skennon/.vscode/extensions/atlassian.atlascode-3.0.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atomKeymap.promptV3Features": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
   "redhat.telemetry.enabled": false,
+  "files.exclude": {
+    "**/.vscode": true
+  },
+  "workbench.colorTheme": "Tomorrow_Night_Eighties",
+  "sonarlint.rules": {
+    "php:S100": {
+      "level": "off"
+    },
+    "php:S1808": {
+      "level": "off"
+    },
+    "php:S105": {
+      "level": "off"
+    },
+    "php:S1172": {
+      "level": "off"
+    },
+    "php:S6035": {
+      "level": "off"
+    },
+    "php:S117": {
+      "level": "off"
+    },
+    "php:S103": {
+      "level": "off"
+    },
+    "php:S125": {
+      "level": "off"
+    },
+    "Web:PageWithoutTitleCheck": {
+      "level": "off"
+    },
+    "php:S1192": {
+      "level": "off"
+    },
+    "php:S3973": {
+      "level": "off"
+    },
+    "php:S115": {
+      "level": "off"
+    },
+    "php:S4833": {
+      "level": "off"
+    },
+    "php:S2003": {
+      "level": "off"
+    },
+    "php:S905": {
+      "level": "off"
+    },
+    "css:S4658": {
+      "level": "off"
+    },
+    "css:S4666": {
+      "level": "off"
+    },
+    "php:S1488": {
+      "level": "off"
+    },
+    "Web:AvoidCommentedOutCodeCheck": {
+      "level": "off"
+    },
+    "php:S6600": {
+      "level": "off"
+    },
+    "javascript:S3504": {
+      "level": "off"
+    },
+    "css:S4649": {
+      "level": "off"
+    },
+    "javascript:S6535": {
+      "level": "off"
+    }
+  },
+  "scss.format.maxPreserveNewLines": 2,
+  "scss.format.spaceAroundSelectorSeparator": true,
+  "html.format.contentUnformatted": "",
+  "emmet.triggerExpansionOnTab": true,
+  "files.associations": {
+    "*html": "html",
+    "*.scss": "scss"
+  },
+  "emmet.useInlineCompletions": true,
+  "atlascode.jira.lastCreateSiteAndProject": {
+    "siteId": "b5575528-18ba-446d-9bce-e4acc9672051",
+    "projectKey": "AM"
+  },
+  "atlascode.jira.enabled": true,
+  "atlascode.bitbucket.enabled": false,
+  "atlascode.jira.explorer.fetchAllQueryResults": true,
+  "atlascode.jira.explorer.enabled": true,
+  "atlascode.helpExplorerEnabled": false,
+  "atlascode.jira.statusbar.enabled": false,
+  "atlascode.jira.jqlList": [
+    {
+      "id": "05570a04-a60b-4b81-83be-2bfe02ca972e",
+      "siteId": "b5575528-18ba-446d-9bce-e4acc9672051",
+      "filterId": "10746",
+      "name": "Open no Block",
+      "query": "assignee = currentUser() AND resolution = Unresolved AND Blocked = EMPTY ORDER BY cf[10008] ASC, updated DESC",
+      "enabled": true,
+      "monitor": true
+    }
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "php.validate.executablePath": "/usr/local/opt/php@7.4/bin/php",
+  "search.searchEditor.defaultNumberOfContextLines": 3,
+  "stylelint.config": {},
+  "css.format.maxPreserveNewLines": 2,
+  "css.format.spaceAroundSelectorSeparator": true,
+  "git.ignoreMissingGitWarning": true,
+  "window.zoomLevel": -1
 }

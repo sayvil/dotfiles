@@ -1,0 +1,36 @@
+# Node.js #
+node_modules/
+
+# Bower #
+bower_components/
+
+# Composer #
+vendor/
+
+# Logs and databases #
+*.log
+*.sql
+*.env
+
+# OS generated files #
+.DS_Store
+.thumbs.db
+ehthumbs.db
+Icon?
+._*
+
+
+# SASS #
+.sass-cache/
+sass/.sass-cache/
+*.map
+
+# Temporary or Generated Files
+css/dev/
+css/prod/
+js/dev/
+js/prod/
+dist/
+wp-content/uploads/
+wp-content/cache/
+gulp/reports/
