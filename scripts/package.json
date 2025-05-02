@@ -1,0 +1,20 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "main": "update-po-files.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-bisheng": "node update-po-files.js bisheng",
+    "update-pacsys-theme": "node update-po-files.js pacsys-theme",
+    "update-pacsys-plugin": "node update-po-files.js pacsys-plugin",
+    "update-pacsys-wp": "node update-po-files.js pacsys-wp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "csv-parser": "^3.2.0",
+    "gettext-parser": "^8.0.0"
+  }
+}

@@ -1,0 +1,36 @@
+node_modules
+
+# macOS
+.DS_Store
+yarn.lock
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# https://github.com/github/gitignore/blob/master/Global/MicrosoftOffice.gitignore
+*.tmp
+# Word temporary
+~$*.doc*
+# Word Auto Backup File
+Backup of *.doc*
+# Excel temporary
+~$*.xls*
+# Excel Backup File
+*.xlk
+wp-admin
+wp-includes
+wp-content/plugins/hello.php
+wp-content/plugins/index.php
+wp-content/index.php
+package-lock.json
+web/wp-content/plugins
+wp-migrate-db-pro-compatibility.php
+web/wp-content/themes/x-child-2022

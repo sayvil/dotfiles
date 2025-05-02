@@ -1,0 +1,19 @@
+[
+	{
+		"msgid": "Select language",
+		"translations": {
+			"ar_AE": "اختر اللغة",
+			"de_DE": "Sprache auswählen",
+			"es_ES": "Seleccionar idioma",
+			"es_XM": "Seleccionar idioma",
+			"fr_FR": "Choisir la langue",
+			"it_IT": "Seleziona la lingua",
+			"ja_JP": "言語を選択",
+			"ko_KR": "언어 선택",
+			"pt_BR": "Selecionar idioma",
+			"ru_RU": "Выбрать язык",
+			"tr_TR": "Dil seçin",
+			"zh_CN": "选择语言"
+		}
+	}
+]
