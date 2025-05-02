@@ -1,40 +1,129 @@
-# dotfiles
+# Dotfiles
 
-## installation
+This repository contains various configuration files and scripts for development.
 
-### macOS
-`git clone https://github.com/embolden/dotfiles.git ~/Code`  
-`cd ~/.`  
-`ln -s ~/Code/dotfiles/.zshenv ~/`  
-`ln -s ~/Code/dotfiles/.zshrc ~/`  
-`touch ~/.hushlogin`  
+## Translation Update Scripts
 
-### windows 10
-@todo
+For detailed documentation on the `update-po-files.py` script and related translation update tools, please refer to the [README-mopo.md](README-mopo.md) file.
 
-## git config
+## Other Scripts
 
-### macOS
-`ln -s ~/Code/dotfiles/.gitignore_global ~/`  
-`git config --global core.excludesfile ~/.gitignore_global`  
+### `update_changelog.py`
+**Description:**
+Updates the `CHANGELOG.md` file with new commits since the last release. It groups commits by date and increments the version number.
 
-### windows 10
-`mklink /H %USERPROFILE%\.gitignore C:\Users\Matt\Projects\dotfiles\.gitignore_global`  
-`git config --global core.excludesFile "%USERPROFILE%\.gitignore_global"`  
+**Command to Run:**
+```bash
+python update_changelog.py
+```
 
-## visual studio code
-https://pawelgrzybek.com/sync-vscode-settings-and-snippets-via-dotfiles-on-github/  
+---
 
-### macOS
-`ln -s ~/Code/dotfiles/Code/settings.json ~/Library/Application\ Support/Code/User/settings.json`  
-`ln -s ~/Code/dotfiles/Code/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json`  
-`ln -s ~/Code/dotfiles/Code/snippets/ ~/Library/Application\ Support/Code/User/snippets`  
+### `run_all.py`
+**Description:**
+Runs a predefined set of scripts in sequence. Useful for automating multiple tasks.
 
-### windows 10
-`mklink /J %APPDATA%\Code\User C:\Users\Matt\Projects\dotfiles\Code\`  
+**Command to Run:**
+```bash
+python scripts/inage-cdn/run_all.py
+```
 
-#### Extensions
-##### Backup
-`code --list-extensions > extensions.list`
-##### Install
-`cat extensions.list | xargs -n 1 code --install-extension`
+---
+
+### `create-html.py`
+**Description:**
+Converts a Markdown file (`README.md`) into an HTML file with a Table of Contents and custom styling.
+
+**Command to Run:**
+```bash
+python scripts/inage-cdn/create-html.py
+```
+
+---
+
+### `convert_from_md.py`
+**Description:**
+Parses a Markdown file and generates structured data in JSON or CSV format. Supports filtering and tagging.
+
+**Commands to Run:**
+- Generate both JSON and CSV:
+  ```bash
+  python scripts/inage-cdn/convert_from_md.py all
+  ```
+- Generate only JSON:
+  ```bash
+  python scripts/inage-cdn/convert_from_md.py json
+  ```
+- Generate only CSV:
+  ```bash
+  python scripts/inage-cdn/convert_from_md.py csv
+  ```
+
+---
+
+### `mopo.sh`
+**Description:**
+Generates `.mo` files from `.po` files in a specified directory.
+
+**Commands to Run:**
+- Process `.po` files in the current directory:
+  ```bash
+  sh scripts/mopo.sh
+  ```
+- Process `.po` files in a specific directory:
+  ```bash
+  sh scripts/mopo.sh /path/to/language/directory
+  ```
+
+---
+
+### `mopo-remote.sh`
+**Description:**
+Generates `.mo` and `.json` files from `.po` files in a specified directory. Formats the `.json` files for consistency.
+
+**Commands to Run:**
+- Process `.po` files in the current directory:
+  ```bash
+  sh scripts/mopo-remote.sh
+  ```
+- Process `.po` files in a specific directory:
+  ```bash
+  sh scripts/mopo-remote.sh /path/to/language/directory
+  ```
+
+---
+
+### `update-po-files.js`
+**Description:**
+Updates `.po` files with translations from a `.csv` or `.json` input file. Supports recursive directory structures and multiple naming conventions.
+
+**Commands to Run:**
+- Update translations for a specific target (e.g., `bisheng`):
+  ```bash
+  node scripts/update-po-files.js bisheng
+  ```
+- Use a JSON input file:
+  ```bash
+  node scripts/update-po-files.js bisheng json
+  ```
+- Update translations and generate `.mo` files:
+  ```bash
+  node scripts/update-po-files.js bisheng mopo
+  ```
+
+---
+
+### `update-po-files-csv.js`
+**Description:**
+Similar to `update-po-files.js`, but specifically processes `.csv` input files for updating `.po` files.
+
+**Command to Run:**
+```bash
+node update-po-files-csv.js <target> <path/to/csv-file>
+```
+
+---
+
+### `update-po-from-this.json` and `update-po-from-this.csv`
+**Description:**
+These files contain translation data used by the `update-po-files.js` and `update-po-files-csv.js

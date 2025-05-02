@@ -38,6 +38,7 @@ alias mopo="/Users/skennon/Documents/_mine/scripts/mopo.sh"
 alias updatepo="cd /Users/skennon/Documents/_mine/scripts"
 alias editpo="code /Users/skennon/Documents/_mine/scripts/update-po-files.js"
 alias goscripts="cd /Users/skennon/Documents/_mine/scripts"
+alias changelog="python /Users/skennon/Documents/_mine/dotfiles/scripts/update_changelog.py"
 
 alias lintit="npx stylelint '**/*.scss' --config '/Users/skennon/Documents/_mine/dotfiles/global-stylelint-config/.stylelintrc.json'"
 alias lintfix="npx stylelint '**/*.scss' --config '/Users/skennon/Documents/_mine/dotfiles/global-stylelint-config/.stylelintrc.json' --fix"
