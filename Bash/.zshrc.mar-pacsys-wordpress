@@ -1,8 +1,18 @@
 echo "Loaded mar-pacsys-wordpress aliases and functions"
 
+# Initialize nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
 # ----------------------------
 # Marriott Project-Specific Aliases and Functions
 # ----------------------------
+
+alias buildpac='[ "$(basename "$PWD")" = "pacsys-components" ] && npm run build || (cd pacsys-components && npm run build)'
+alias startpac='[ "$(basename "$PWD")" = "pacsys-components" ] && npm run start || (cd pacsys-components && npm run start)'
+alias gotheme='gotop && cd "pacsys-theme"'
+
 
 # alias buildak="go2 ak"
 function go2() {
@@ -38,4 +48,41 @@ function go2ib() {
 function build4() {
   local project=$1
   npm run build-${project} && go2ib ${project}
+}
+
+# Update local npm packages for pacsys-components
+function update-local-pacsys() {
+	echo "Updating local npm package: pacsys-components..."
+
+	local repo_path="/Users/skennon/Sites/_GIT/Marriott/pacsys/mar-bi-sheng/pacsys-components/"
+	local target_path="node_modules/@hlk/pacsys-components"
+
+	if [ -d "$repo_path" ]; then
+		echo "Copying directories and files from $repo_path to $target_path..."
+		mkdir -p "$target_path"
+		cp -R "$repo_path/dist" "$target_path/"
+		cp -R "$repo_path/www" "$target_path/"
+		cp "$repo_path/package.json" "$target_path/"
+		cp "$repo_path/LICENSE" "$target_path/"
+		echo "pacsys-components package updated!"
+	else
+		echo "Error: Local repository for pacsys-components not found at $repo_path"
+	fi
+}
+
+alias updatepac='update-local-pacsys'
+
+# Update local npm packages for mar-pacsys-global
+function update-local-global() {
+	echo "Updating local npm package: mar-pacsys-global..."
+
+	local repo_path="/Users/skennon/Sites/_GIT/Marriott/pacsys/mar-pacsys-global/"
+	if [ -d "$repo_path" ]; then
+		echo "Installing @hlk/mar-pacsys-global from $repo_path..."
+		npm install "$repo_path"
+	else
+		echo "Error: Local repository for mar-pacsys-global not found at $repo_path"
+	fi
+
+	echo "mar-pacsys-global package updated!"
 }

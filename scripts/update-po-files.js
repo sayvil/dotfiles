@@ -5,18 +5,18 @@ const { exec } = require('child_process');
 
 // Directory paths
 const directories = {
-  'bisheng': path.resolve(__dirname, '../../Marriott/pacsys/mar-bi-sheng/pacsys-components/src/static/languages'),
-  'pacsys-theme': path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/pacsys-theme/languages'),
-	'pacsys-legacy': path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template-legacy/templates/lang'),
-  'pacsys-temp': path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template/templates/lang'),
+	'bisheng': path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Marriott/pacsys/mar-bi-sheng/pacsys-components/src/static/languages'),
+  'pacsys-theme': path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/pacsys-theme/languages'),
+	'pacsys-legacy': path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template-legacy/templates/lang'),
+  'pacsys-temp': path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template/templates/lang'),
   'pacsys-plugin': [
-    path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template-legacy/templates/lang'),
-    path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template/templates/lang'),
+    path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template-legacy/templates/lang'),
+    path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template/templates/lang'),
   ],
   'pacsys-wp': [
-    path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template-legacy/templates/lang'),
-    path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template/templates/lang'),
-    path.resolve(__dirname, '../../Pacsys/mar-pacsys-wordpress/pacsys-theme/languages'),
+    path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template-legacy/templates/lang'),
+    path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/config/mule/gutenberg-template/templates/lang'),
+    path.resolve(__dirname, '/Users/skennon/Sites/_GIT/Pacsys/mar-pacsys-wordpress/pacsys-theme/languages'),
   ],
 };
 
@@ -101,18 +101,21 @@ function loadTranslationsFromCSV(filePath, callback) {
 
 // Function to run `mopo-remote.sh` for Bi-Sheng and `.mo` generation for others
 function runMopo(target, targetDirectories) {
-  targetDirectories.forEach((dir) => {
-    console.log(`Running mopo in: ${dir}`);
-    const script = target === 'bisheng' ? './mopo-remote.sh' : './mopo.sh';
-    exec(`sh ${script} ${dir}`, (err, stdout, stderr) => {
-      if (err) {
-        console.error(`Error running mopo in ${dir}:`, err);
-      } else {
-        console.log(`mopo output for ${dir}:\n${stdout}`);
-      }
-    });
-  });
+	targetDirectories.forEach((dir) => {
+		console.log(`Running mopo in: ${dir}`);
+		const script = target === 'bisheng'
+			? path.resolve(__dirname, './mopo-remote.sh')
+			: path.resolve(__dirname, './mopo.sh');
+		exec(`sh ${script} ${dir}`, (err, stdout, stderr) => {
+			if (err) {
+				console.error(`Error running mopo in ${dir}:`, err);
+			} else {
+				console.log(`mopo output for ${dir}:\n${stdout}`);
+			}
+		});
+	});
 }
+
 
 // Get the target directory and optional flags
 const target = process.argv[2];

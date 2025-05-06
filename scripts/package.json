@@ -15,6 +15,7 @@
   "description": "",
   "devDependencies": {
     "csv-parser": "^3.2.0",
-    "gettext-parser": "^8.0.0"
+    "gettext-parser": "^8.0.0",
+    "po2json": "^0.4.5"
   }
 }

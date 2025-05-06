@@ -2,6 +2,20 @@
 
 This repository contains various configuration files and scripts for development.
 
+## Pacsys Update Scripts
+
+---
+
+### `update-local-npm-packages.sh`
+**Description:**
+Updates local npm packages by pulling the latest changes from their respective repositories. This script ensures that all local npm dependencies are up-to-date.
+
+Update 
+**Command to Run:**
+```bash
+sh scripts/update-local-npm-packages.sh
+```
+
 ## Translation Update Scripts
 
 For detailed documentation on the `update-po-files.py` script and related translation update tools, please refer to the [README-mopo.md](README-mopo.md) file.

@@ -7,6 +7,8 @@ alias lower='for f in *; do mv "$f" "$(echo "$f" | tr "[:upper:]" "[:lower:]")";
 # Edit and reload .zshrc
 alias editz="code ~/.zshrc"
 alias fixz="source ~/.zshrc"
+alias editzm="code ~/.zshrc.mar-pacsys-wordpress"
+alias fixzm="source ~/.zshrc.mar-pacsys-wordpress"
 
 # ----------------------------
 # WordPress Aliases and Functions
@@ -33,16 +35,20 @@ alias wploginb="wplogin bsherron@hlkagency.com"
 alias wpcreateuser="docker compose run --rm cli wp user create skennon@hlkagency.com skennon@hlkagency.com --role=administrator"
 alias wpflush="docker compose run --rm cli wp cache flush"
 alias delnm="rm -rf node_modules"
-# alias mopo="/Users/skennon/Documents/_GIT/Marriott/1.0/mo-po.sh"
-alias mopo="/Users/skennon/Documents/_mine/scripts/mopo.sh"
-alias updatepo="cd /Users/skennon/Documents/_mine/scripts"
-alias editpo="code /Users/skennon/Documents/_mine/scripts/update-po-files.js"
-alias goscripts="cd /Users/skennon/Documents/_mine/scripts"
-alias changelog="python /Users/skennon/Documents/_mine/dotfiles/scripts/update_changelog.py"
+# Define a variable for the dotfiles folder
+export MYGIT_DIR="/Users/skennon/Documents/_mine/dotfiles"
 
-alias lintit="npx stylelint '**/*.scss' --config '/Users/skennon/Documents/_mine/dotfiles/global-stylelint-config/.stylelintrc.json'"
-alias lintfix="npx stylelint '**/*.scss' --config '/Users/skennon/Documents/_mine/dotfiles/global-stylelint-config/.stylelintrc.json' --fix"
-alias lintthis="npx stylelint '*.scss' --config '/Users/skennon/Documents/_mine/dotfiles/global-stylelint-config/.stylelintrc.json' --config-basedir '/Users/skennon/Documents/_mine/dotfiles/global-stylelint-config' --fix"
+# Use the variable in the alias
+alias mopo="$MYGIT_DIR/scripts/mopo.sh"
+alias mopojs="$MYGIT_DIR/scripts/mopo-remote.sh"
+alias updatepo="cd $MYGIT_DIR/scripts"
+alias editpo="code $MYGIT_DIR/scripts/update-po-files.js"
+alias goscripts="cd $MYGIT_DIR/scripts"
+alias changelog="python $MYGIT_DIR/scripts/update_changelog.py"
+
+alias lintit="npx stylelint '**/*.scss' --config '$MYGIT_DIR/global-stylelint-config/.stylelintrc.json'"
+alias lintfix="npx stylelint '**/*.scss' --config '$MYGIT_DIR/global-stylelint-config/.stylelintrc.json' --fix"
+alias lintthis="npx stylelint '*.scss' --config '$MYGIT_DIR/global-stylelint-config/.stylelintrc.json' --config-basedir '$MYGIT_DIR/dotfiles/global-stylelint-config' --fix"
 
 # ----------------------------
 # Docker Aliases
